@@ -8,7 +8,7 @@ let personajes = [];
 //FETCH
 for (let i = 1; i <= 83; i++) {
   if (i == 17) continue; //personaje 17 es undefined
-  fetch(`//swapi.dev/api/people/${i}`)
+  fetch(`https://swapi.dev/api/people/${i}`)
     .then((data) => data.json())
     .then((personaje) => {
       // personaje no es personaje.data porque el objeto ya esta listo y es solo uno
