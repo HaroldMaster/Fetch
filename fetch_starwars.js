@@ -13,11 +13,13 @@ for (let i = 1; i <= 83; i++) {
     .then((personaje) => {
       // personaje no es personaje.data porque el objeto ya esta listo y es solo uno
       guardarPersonajes(personaje);
-      if (personajes.length == 82) {
-        return personajes;
-      } else return "error";
+      return new Promise((resolve, reject) => {
+        resolve(personajes);
+      });
     })
-    .then((arraypersonaje) => renderPersonaje(arraypersonaje))
+    .then((arraypersonaje) =>{if (personajes.length == 82) {
+      renderPersonaje(personajes);
+    }})
     .catch((error) => console.log("Error en el fetch" + error));
 }
 
